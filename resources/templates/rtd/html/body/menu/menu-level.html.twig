@@ -1,0 +1,6 @@
+{% set entries = entries | default(node.menuEntries) %}
+<ul class="{{ entry.url in menu.rootlinePaths ? 'current' }}">
+    {% for entry in entries -%}
+        {{ renderNode(entry) }}
+    {%- endfor %}
+</ul>
