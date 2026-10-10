@@ -14,11 +14,15 @@ namespace WouterJ\ReadTheDocs\DependencyInjection;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use WouterJ\ReadTheDocs\EventListener\CopyAssetsListener;
+use phpDocumentor\Guides\Event\PostRenderProcess;
 
 class ReadTheDocsExtension extends Extension implements PrependExtensionInterface
 {
     public function load(array $configs, ContainerBuilder $container): void
     {
+        $container->register(CopyAssetsListener::class)
+            ->addTag('event_listener', ['event' => PostRenderProcess::class]);
     }
 
     public function prepend(ContainerBuilder $container): void
