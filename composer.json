@@ -6,7 +6,8 @@
     "license": "BSD-3 clause",
 
     "require": {
-        "symfony/dependency-injection": ">=5.4,<8.0"
+        "symfony/dependency-injection": "^6.0 || ^7.4 || ^8.0",
+        "phpdocumentor/guides": "^1.11"
     },
 
     "autoload": {
